@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+   <link rel="stylesheet" type="text/css" href="theme2.css">
+   <head> 
+      <h1>Blog</h1>
+   </head>
+
+   <body>
+   	<a href="website.html"> <b> Home </b></a>
+      <h3>My Photo Gallery</h3>
+      
+     <div class="img-container">
+       <div>
+         <center>
+         <img src="images/1.jpg" class="img-slide" width="475" height="375">
+
+         <img src="images/2.jpg" class="img-slide" width="300" height="455">
+
+         <img src="images/3.jpg" class="img-slide" width="300" height="455">
+         </center>
+       </div>
+     </div>
+     <center>
+       <button onclick="change(-1)" id="prevBtn" style="border-radius: 5px; margin: 3px;">Prev</button>
+       <button onclick="change(1)" id="nextBtn" style="border-radius: 5px; margin: 3px;">Next</button>
+     </center>
+
+     <script type="text/javascript">
+       
+       index = 0;
+       show(index);
+
+       function show(n) {
+         var imgs = document.getElementsByClassName("img-slide");
+
+         if (n>imgs.length-1) {
+           index=0;
+         }
+
+         if (n<0) {
+           index= imgs.length-1;
+         }
+
+         for (var i = 0; i<= imgs.length-1; i++) {
+           imgs[i].style.display="none";
+         }
+
+         imgs[index].style.display= "block";
+       }
+
+
+       function automatic(){
+           index++;
+           show(index);
+           setTimeout(automatic, 3500);
+         }
+
+         automatic();
+
+         function change(n){
+           index+= n;
+           show(index);
+         }
+
+     </script>
+   </div>
+
+<div>
+   </body>
+
+   <footer>
+      <p> &copy Binju.Mahat 2020 </p>
+   </footer>
+</html>
